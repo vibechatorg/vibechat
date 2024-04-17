@@ -1,10 +1,4 @@
 {
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build && vite build --ssr"
-  },
   "devDependencies": {
     "@headlessui/react": "^1.4.2",
     "@inertiajs/react": "^1.0.0",
@@ -20,5 +14,18 @@
     "react-dom": "^18.2.0",
     "tailwindcss": "^3.2.1",
     "vite": "^5.0"
+  },
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && vite build --ssr"
+  },
+  "type": "module",
+  "dependencies": {
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "lucide-react": "^0.368.0",
+    "tailwind-merge": "^2.2.2",
+    "tailwindcss-animate": "^1.0.7"
   }
 }

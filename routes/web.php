@@ -26,15 +26,15 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
-Route::post('/send-message', [ChatController::class, 'sendMessage']);
-Route::get('/messages', [ChatController::class, 'getMessages']);
-Route::get('/rooms', [ChatController::class, 'getRooms']);
-Route::post('/rooms', [ChatController::class, 'createRoom']);
-Route::get('/rooms/{roomId}', [ChatController::class, 'getRoom']);
-Route::post('/rooms/{roomId}/join', [ChatController::class, 'joinRoom']);
-Route::post('/rooms/{roomId}/leave', [ChatController::class, 'leaveRoom']);
-
+Route::controller(ChatController::class)->middleware('auth')->name("chat.")->group(function () {
+    Route::post('/send-message', 'send');
+    Route::get('/messages','getMessage');
+    Route::get('/rooms', 'getRooms');
+    Route::post('/rooms', 'create');
+    Route::get('/rooms/{roomId}', 'getRoom');
+    Route::post('/rooms/{roomId}/join', 'join');
+    Route::post('/rooms/{roomId}/leave', 'leave');
+});
 
 Route::get('/chat', function () {
     return Inertia::render('ChatComponent', ['roomId' => 'defaultRoomId']);

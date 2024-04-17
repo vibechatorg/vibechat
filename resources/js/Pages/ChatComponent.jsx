@@ -1,19 +1,23 @@
-import  {useState} from 'react';
-import { router } from '@inertiajs/react'
+import { useForm } from '@inertiajs/react'
+import {Input} from "@/Components/ui/input.jsx";
 const ChatComponent = ({ roomId }) => {
-    const [message, setMessage] = useState('');
+    const { data, setData, errors, post, processing, reset } = useForm({
+        message: '',
+    });
 
     const sendMessage = () => {
-        router.post('/send-message', { message, roomId });
-        setMessage('');
+        post(route('chat.send', roomId), {
+            onSuccess: () => {
+                reset();
+            },
+        });
     };
 
     return (
         <div>
-            <input
-                type="text"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
+            <Input
+                value={data.message}
+                onChange={(e) => setData('message', e.target.value)}
                 placeholder="Type a message..."
             />
             <button onClick={sendMessage}>Send</button>

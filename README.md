@@ -1,3 +1,10 @@
+<p align="center"><a href="https://vibechat.nl" target="_blank"><img src="https://cdn.discordapp.com/attachments/1230609534297571598/1230619097562353714/vibebanner.png?ex=6633fa58&is=66218558&hm=4347ed1662fb5fde16b3e85dec9b327616cd8275ba6975bfcf2bd88c8e1c7d67&" width="400" alt="Laravel Logo"></a></p>
+
+<p align="center">
+<a href="https://github.com/vibechatorg/vibechat/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
+</p>
+
+
 # VibeChat - Secure Your Vibes
 
 Welcome to VibeChat, an open-source, end-to-end encrypted chat application that's revolutionizing the way you connect and communicate. Designed for the modern web and mobile era, VibeChat offers seamless messaging experiences across Web, iOS, and Android platforms. With privacy at its heart and cutting-edge features at your fingertips, VibeChat is not just an app, it's a haven for secure communication.

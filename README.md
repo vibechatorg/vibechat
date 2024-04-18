@@ -1,66 +1,50 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# VibeChat - Secure Your Vibes
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Welcome to VibeChat, an open-source, end-to-end encrypted chat application that's revolutionizing the way you connect and communicate. Designed for the modern web and mobile era, VibeChat offers seamless messaging experiences across Web, iOS, and Android platforms. With privacy at its heart and cutting-edge features at your fingertips, VibeChat is not just an app, it's a haven for secure communication.
 
-## About Laravel
+## Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **End-to-End Encryption**: Every message is secured with state-of-the-art encryption technology, ensuring that your conversations stay private.
+- **Cross-Platform Availability**: Whether you're on the go with your smartphone or at your desk browsing the web, VibeChat has you covered.
+- **Latest Tech**: Powered by Laravel and leveraging the speed of WebAssembly, VibeChat offers unparalleled performance and a smooth user experience.
+- **User-Friendly Interface**: With a focus on user experience, VibeChat boasts an intuitive design that makes secure messaging accessible to everyone.
+- **Open Source**: Dive into the code, contribute, or customize. VibeChat's open-source nature puts you in control.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Powered by Laravel
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Built on the robust Laravel framework, VibeChat benefits from high security, elegant syntax, and a wealth of features that make it a powerhouse in the realm of app development.
 
-## Learning Laravel
+## Why VibeChat?
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+In an era where digital privacy is paramount, VibeChat stands out with its commitment to user security without compromising on functionality. Connect with friends, family, and colleagues, share moments, and join communities—all with the peace of mind that your data remains yours alone.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Contributing or building your own VibeChat
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+To get started with VibeChat:
 
-## Laravel Sponsors
+1. Clone the repository:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+```
+git clone https://github.com/vibechatorg/vibechat.git
+```
+2. Install the dependencies:
+   (VibeChat is created using the javascript runtime bun for fast and efficient web applications)
 
-### Premium Partners
+```
+bun install
+composer install
+```
+3. Generate database and encryption keys:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+```
+php artisan key:generate
+php artisan migrate
+php artisan app:generate-encryption-key
+```
 
-## Contributing
+4. Run the development server:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```
+bun run build
+php artisan serve
+```

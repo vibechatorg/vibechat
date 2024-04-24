@@ -6,7 +6,7 @@ import { usePage } from "@inertiajs/react";
  */
 export default function useAuth() {
     // Accessing authentication data from the current page using Inertia's usePage hook
-    const { auth } = usePage();
+    const { auth } = usePage().props;
 
     // Extracting user data from authentication data
     const { user } = auth;

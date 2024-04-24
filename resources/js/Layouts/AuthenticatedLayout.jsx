@@ -16,7 +16,7 @@ export default function Authenticated({ head, children }) {
 
             <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
                 <nav className="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="flex justify-between h-16">
                             <div className="flex">
                                 <div className="shrink-0 flex items-center">
@@ -29,6 +29,9 @@ export default function Authenticated({ head, children }) {
                                 <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                     <NavLink href={route('dashboard')} active={route().current('dashboard')}>
                                         Dashboard
+                                    </NavLink>
+                                    <NavLink href={route('chat.index')} active={route().current('chat.index')}>
+                                        Chat
                                     </NavLink>
                                 </div>
                             </div>
@@ -101,6 +104,9 @@ export default function Authenticated({ head, children }) {
                             <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
                                 Dashboard
                             </ResponsiveNavLink>
+                            <ResponsiveNavLink href={route('chat.index')} active={route().current('chat.index')}>
+                                Chat
+                            </ResponsiveNavLink>
                         </div>
 
                         <div className="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
@@ -122,7 +128,7 @@ export default function Authenticated({ head, children }) {
 
                 {head && (
                     <header className="bg-white dark:bg-gray-800 shadow">
-                        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                        <div className="max-w-[100rem] mx-auto py-6 px-4 sm:px-6 lg:px-8">
                             <h2 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
                                 {head}
                             </h2>
@@ -130,7 +136,9 @@ export default function Authenticated({ head, children }) {
                     </header>
                     )}
 
-                <main>{children}</main>
+                <main className="py-12 max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
+                    {children}
+                </main>
             </div>
         </>
     );

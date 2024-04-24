@@ -13,21 +13,22 @@ use Inertia\Response;
 
 class ChatController extends Controller
 {
-    public function index(): Response
+    public function index(Request $request): Response
     {
-        return Inertia::render('Chat/Index');
+        return Inertia::render('Chat/Index', [
+            "rooms" => fn() => $request->user()->rooms,
+        ]);
     }
 
     /**
      * Show the chat page.
      *
-     * @param $type
-     * @param $roomId
+     * @param $chat
      * @return Response
      */
-    public function show($type, $roomId): Response
+    public function show($chat): Response
     {
-        return Inertia::render('Chat/Chat', ['roomId' => $roomId]);
+        return Inertia::render('Chat/Chat', ['chat' => $chat]);
     }
 
     /**

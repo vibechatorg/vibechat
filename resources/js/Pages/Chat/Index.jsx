@@ -3,7 +3,7 @@ import Authenticated from "@/Layouts/AuthenticatedLayout.jsx";
 
 const Index = memo(function ({ messages = [] }) {
     return (
-        <Authenticated>
+        <Authenticated head="Chats">
             <div>
                 {messages.map((message) => (
                     <div key={message.id}>{message.message}</div>
@@ -12,3 +12,5 @@ const Index = memo(function ({ messages = [] }) {
         </Authenticated>
     )
 });
+
+export default Index;

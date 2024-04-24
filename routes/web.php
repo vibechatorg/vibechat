@@ -27,16 +27,17 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::controller(ChatController::class)->middleware(['auth'])->name("chat.")->prefix("chat")->group(function () {
-    Route::post('/send-message', 'send');
-    Route::get('/messages','getMessage');
-    Route::get('/rooms', 'getRooms');
-    Route::post('/rooms', 'create');
-    Route::get('/rooms/{roomId}', 'getRoom');
-    Route::post('/rooms/{roomId}/join', 'join');
-    Route::post('/rooms/{roomId}/leave', 'leave');
+    Route::post('/send-message', 'send')->name("send");
+    Route::get('/messages','getMessage')->name("messages");
+    Route::get('/rooms', 'getRooms')->name("rooms");
+    Route::post('/rooms', 'create')->name("create");
+    Route::get('/rooms/{roomId}', 'getRoom')->name("room");
+    Route::post('/rooms/{roomId}/join', 'join')->name("join");
+    Route::post('/rooms/{roomId}/leave', 'leave')->name("leave");
 
-    Route::get('/', 'index');
-    Route::get('/{type}/{id}', 'show');
+    // Frontend Routes Daan
+    Route::get('/', 'index')->name("index");
+    Route::get('/{chat}', 'show')->name("show");
 });
 
 require __DIR__.'/auth.php';

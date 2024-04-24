@@ -1,26 +1,12 @@
-import { useForm } from '@inertiajs/react'
-import {Input} from "@/Components/ui/input.jsx";
 import {memo} from "react";
+import ChatLayout from "@/Pages/Chat/Layouts/ChatLayout.jsx";
+import SendMessage from "@/Pages/Chat/Partials/SendMessage.jsx";
 
-const Chat = memo(function ({ roomId }) {
-    const { data, setData, errors, post, processing, reset, isDirty } = useForm({
-        message: '',
-    });
-
-    const sendMessage = () =>
-        post(route('chat.send', roomId), {
-            onSuccess: () => reset(),
-        });
-
+const Chat = memo(function ({ id, chat }) {
     return (
-        <div>
-            <Input
-                value={data.message}
-                onChange={(e) => setData('message', e.target.value)}
-                placeholder="Type a message..."
-            />
-            <button onClick={sendMessage}>Send</button>
-        </div>
+        <ChatLayout head={chat.name}>
+            <SendMessage id={id} />
+        </ChatLayout>
     );
 });
 

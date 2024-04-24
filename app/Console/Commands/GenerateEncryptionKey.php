@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
+use Random\RandomException;
 
 class GenerateEncryptionKey extends Command
 {
@@ -25,8 +26,9 @@ class GenerateEncryptionKey extends Command
      * Execute the console command.
      *
      * @return int
+     * @throws RandomException
      */
-    public function handle()
+    public function handle(): int
     {
         $key = base64_encode(random_bytes(SODIUM_CRYPTO_SECRETBOX_KEYBYTES));
         $this->setEnvironmentValue('ENCRYPTION_KEY', $key);
@@ -39,11 +41,11 @@ class GenerateEncryptionKey extends Command
     /**
      * Set or update an environment variable's value.
      *
-     * @param  string  $key
+     * @param string $key
      * @param  mixed  $value
      * @return void
      */
-    protected function setEnvironmentValue($key, $value)
+    protected function setEnvironmentValue(string $key, mixed $value): void
     {
         $envFile = app()->environmentFilePath();
         $str = File::get($envFile);

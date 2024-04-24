@@ -14,12 +14,14 @@ class MessageSent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    private array $message;
+
     /**
      * Create a new event instance.
      */
-    public function __construct()
+    public function __construct(array $message)
     {
-        //
+        $this->message = $message;
     }
 
     /**
@@ -27,14 +29,14 @@ class MessageSent
      *
      * @return array<int, \Illuminate\Broadcasting\Channel>
      */
-    public function broadcastOn()
+    public function broadcastOn(): array|PrivateChannel
     {
-        return new PrivateChannel('chat.' . $this->message->room_id);
+        return new PrivateChannel('chat.' . $this->message["room_id"]);
     }
 
-    public function broadcastWith()
+    public function broadcastWith(): array
     {
-        return ["message" => $this->message->content];
+        return ["message" => $this->message["content"]];
     }
 
 }

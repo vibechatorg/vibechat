@@ -30,7 +30,7 @@ class EncryptionService
      *
      * @throws Exception If the key is not set or invalid
      */
-    private function loadKey()
+    private function loadKey(): void
     {
         $encodedKey = Config::get('encryption.key');
         if (empty($encodedKey)) {
@@ -52,7 +52,7 @@ class EncryptionService
      * @return array Encrypted data with nonce.
      * @throws Exception If encryption fails.
      */
-    public function encrypt($plaintext)
+    public function encrypt(string $plaintext): array
     {
         $nonce = random_bytes(SODIUM_CRYPTO_SECRETBOX_NONCEBYTES);
         $ciphertext = sodium_crypto_secretbox($plaintext, $nonce, $this->key);
@@ -76,7 +76,7 @@ class EncryptionService
      * @return array Decrypted data.
      * @throws Exception If decryption fails.
      */
-    public function decrypt($ciphertext, $nonce)
+    public function decrypt(string $ciphertext, string $nonce): array
     {
         $ciphertext = base64_decode($ciphertext);
         $nonce = base64_decode($nonce);
@@ -102,11 +102,11 @@ class EncryptionService
      * @return void
      * @throws Exception If key generation or update fails.
      */
-    public function rotateKey()
+    public function rotateKey(): void
     {
         $newKey = sodium_crypto_secretbox_keygen();
         $encodedKey = base64_encode($newKey);
-
+        
         try {
             // Assuming there's a method to safely update config values
             Config::set('encryption.key', $encodedKey);

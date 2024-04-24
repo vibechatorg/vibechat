@@ -26,7 +26,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::controller(ChatController::class)->middleware('auth')->name("chat.")->group(function () {
+Route::controller(ChatController::class)->middleware(['auth'])->name("chat.")->prefix("chat")->group(function () {
     Route::post('/send-message', 'send');
     Route::get('/messages','getMessage');
     Route::get('/rooms', 'getRooms');
@@ -34,10 +34,9 @@ Route::controller(ChatController::class)->middleware('auth')->name("chat.")->gro
     Route::get('/rooms/{roomId}', 'getRoom');
     Route::post('/rooms/{roomId}/join', 'join');
     Route::post('/rooms/{roomId}/leave', 'leave');
-});
 
-Route::get('/chat', function () {
-    return Inertia::render('ChatComponent', ['roomId' => 'defaultRoomId']);
+    Route::get('/', 'index');
+    Route::get('/{type}/{id}', 'show');
 });
 
 require __DIR__.'/auth.php';

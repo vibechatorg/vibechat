@@ -1,17 +1,16 @@
 import { useForm } from '@inertiajs/react'
 import {Input} from "@/Components/ui/input.jsx";
-const ChatComponent = ({ roomId }) => {
-    const { data, setData, errors, post, processing, reset } = useForm({
+import {memo} from "react";
+
+const Chat = memo(function ({ roomId }) {
+    const { data, setData, errors, post, processing, reset, isDirty } = useForm({
         message: '',
     });
 
-    const sendMessage = () => {
+    const sendMessage = () =>
         post(route('chat.send', roomId), {
-            onSuccess: () => {
-                reset();
-            },
+            onSuccess: () => reset(),
         });
-    };
 
     return (
         <div>
@@ -23,6 +22,6 @@ const ChatComponent = ({ roomId }) => {
             <button onClick={sendMessage}>Send</button>
         </div>
     );
-};
+});
 
-export default ChatComponent;
+export default Chat;

@@ -28,7 +28,12 @@ class ChatController extends Controller
      */
     public function show($chat): Response
     {
-        return Inertia::render('Chat/Chat', ['chat' => $chat]);
+        $testContent = [
+            'id' => $chat,
+            'name' => 'Chat Room 1',
+            'content' => Message::query()->where('room_id', $chat)->get(),
+        ];
+        return Inertia::render('Chat/Chat', ['chat' => $testContent]);
     }
 
     /**

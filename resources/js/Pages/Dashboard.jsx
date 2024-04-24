@@ -1,6 +1,11 @@
 import Authenticated from '@/Layouts/AuthenticatedLayout';
 import {memo} from "react";
 
+/**
+ * The Dashboard component.
+ *
+ * @returns {JSX.Element} The Dashboard component.
+ */
 const Dashboard = memo(function () {
     return (
         <Authenticated head="Dashboard">
